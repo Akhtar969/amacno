@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – AMACNO PVT LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ABOUT HERO */
+.about-hero{
+  padding:5rem 5vw 4rem;text-align:center;
+  background:linear-gradient(160deg,rgba(0,120,255,.12),transparent 70%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.about-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,200,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,200,255,.03) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.about-hero>*{position:relative;z-index:1;}
+.about-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;}
+.about-hero .grad{background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.about-hero p{color:var(--text2);max-width:640px;margin:0 auto;line-height:1.7;font-size:1.05rem;}
+
+/* STORY GRID */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:5rem 5vw;}
+.story-text h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:1.2rem;}
+.story-text p{color:var(--text2);line-height:1.85;margin-bottom:1.2rem;font-size:.95rem;}
+.about-visual{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:3rem;text-align:center;
+}
+.big-num{
+  font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.big-label{color:var(--text2);margin:.5rem 0 2rem;font-size:.95rem;}
+.stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.stat-mini{background:rgba(0,120,255,.08);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;}
+.stat-mini-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--accent);}
+.stat-mini-label{color:var(--text2);font-size:.78rem;margin-top:.2rem;}
+
+/* TIMELINE */
+.timeline{position:relative;padding:5rem 5vw;background:var(--bg2);border-top:1px solid var(--border);}
+.timeline-line{position:absolute;left:calc(5vw + 24px);top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);}
+.timeline-items{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.timeline-item{display:flex;gap:2rem;margin-bottom:2.5rem;align-items:flex-start;}
+.t-dot{
+  width:50px;height:50px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;color:#fff;
+  box-shadow:0 0 20px rgba(0,120,255,.4);
+}
+.t-content{padding-top:.4rem;}
+.t-year{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.t-content h4{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin:.2rem 0 .4rem;}
+.t-content p{color:var(--text2);font-size:.88rem;line-height:1.6;}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.value-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:2rem;text-align:center;
+  transition:transform .3s,border-color .3s;
+}
+.value-card:hover{transform:translateY(-5px);border-color:rgba(0,200,255,.3);}
+.value-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.value-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;}
+.value-card p{color:var(--text2);font-size:.88rem;line-height:1.6;}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;}
+.team-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:2rem 1.5rem;text-align:center;transition:transform .3s;
+}
+.team-card:hover{transform:translateY(-5px);}
+.team-avatar{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;
+}
+.team-card h3{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;}
+.team-card .role{color:var(--accent);font-size:.78rem;margin-top:.25rem;}
+.team-card .bio{color:var(--text2);font-size:.8rem;margin-top:.5rem;line-height:1.4;}
+
+/* NUMBERS BAND */
+.numbers-band{
+  display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem;
+  padding:4rem 5vw;
+  background:linear-gradient(135deg,rgba(0,120,255,.1),rgba(0,200,255,.05));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.num-item{text-align:center;}
+.num-big{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.num-label{color:var(--text2);font-size:.85rem;margin-top:.25rem;}
+
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;}.timeline-line{display:none;}}
+@media(max-width:640px){.numbers-band{gap:1.5rem;}}
+</style>
+</head>
+<body>
+
+<div class="top-banner">🚀 AMACNO PVT LTD – Connecting India at the Speed of Light &nbsp;|&nbsp; <span>Call: +91 98765 43210</span></div>
+
+<nav>
+  <a class="logo" href="index.html">AMACNO<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="plans.html">Plans & Pricing</a></li>
+    <li><a href="aboutus.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Get Help</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Home</a><a href="services.html">📡 Services</a>
+  <a href="plans.html">💰 Plans & Pricing</a><a href="aboutus.html">ℹ️ About Us</a>
+  <a href="contact.html">📞 Contact</a><a onclick="openHelp()">💬 Get Help</a>
+</div>
+
+<!-- ABOUT HERO -->
+<div class="about-hero">
+  <div class="section-tag">Who We Are</div>
+  <h1>Connecting India,<br><span class="grad">One Home at a Time</span></h1>
+  <p>AMACNO PVT LTD was founded with a single mission: to make reliable, high-speed internet accessible to every home and business across India — without the complexity, the hidden fees, or the poor service that has defined the industry for decades.</p>
+</div>
+
+<!-- NUMBERS BAND -->
+<div class="numbers-band">
+  <div class="num-item"><div class="num-big">50K+</div><div class="num-label">Happy Customers</div></div>
+  <div class="num-item"><div class="num-big">20+</div><div class="num-label">Cities Covered</div></div>
+  <div class="num-item"><div class="num-big">15</div><div class="num-label">Years of Service</div></div>
+  <div class="num-item"><div class="num-big">200+</div><div class="num-label">Certified Technicians</div></div>
+  <div class="num-item"><div class="num-big">4.8★</div><div class="num-label">Average Rating</div></div>
+</div>
+
+<!-- STORY SECTION -->
+<div class="story-grid">
+  <div class="story-text">
+    <div class="section-tag">Our Story</div>
+    <h2>15 Years of Connecting Communities</h2>
+    <p>Founded in 2010 in Mumbai, AMACNO PVT LTD began as a small team of telecom professionals frustrated by the lack of honest, customer-first internet services in India. We set out to change that — starting with a single promise: no hidden fees, ever.</p>
+    <p>Over 15 years, we've grown into one of India's most trusted connectivity facilitators, serving over 50,000 customers across major cities and townships. Our model is simple: partner with the best providers, charge fair prices, and deliver exceptional service at every touchpoint.</p>
+    <p>Today, AMACNO operates as an authorized dealer for India's leading telecom and cable operators, giving our customers access to the widest range of services — all managed through a single, dedicated support team available 24 hours a day, 365 days a year.</p>
+    <div class="btn-group" style="margin-top:1.5rem;">
+      <a class="btn-primary" href="contact.html">Get in Touch</a>
+      <a class="btn-outline" href="plans.html">View Our Plans</a>
+    </div>
+  </div>
+  <div class="about-visual">
+    <div class="big-num">50K+</div>
+    <div class="big-label">Customers served across India</div>
+    <div class="stats-mini">
+      <div class="stat-mini"><div class="stat-mini-num">🏙️ 20+</div><div class="stat-mini-label">Cities & Townships</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">⭐ 4.8</div><div class="stat-mini-label">Customer Rating</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">🔧 200+</div><div class="stat-mini-label">Trained Technicians</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">📅 2010</div><div class="stat-mini-label">Year Founded</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="section-header center" style="margin-bottom:3rem;">
+    <div class="section-tag">Our Journey</div>
+    <h2 class="section-title">How We've Grown</h2>
+  </div>
+  <div class="timeline-items">
+    <div class="timeline-item">
+      <div class="t-dot">2010</div>
+      <div class="t-content"><div class="t-year">Founded</div><h4>AMACNO PVT LTD is Established</h4><p>A small team of 5 telecom professionals founded AMACNO in Mumbai with a bold mission — transparent, reliable internet for all Indians.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="t-dot">2013</div>
+      <div class="t-content"><div class="t-year">Expansion</div><h4>First 5,000 Customers</h4><p>Within 3 years we reached 5,000 satisfied customers across Mumbai and Pune, earning our first industry service award.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="t-dot">2016</div>
+      <div class="t-content"><div class="t-year">Milestone</div><h4>Pan-Maharashtra Operations</h4><p>We expanded our operations across Maharashtra, partnering with 3 major telecom operators and launching our dedicated business internet division.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="t-dot">2019</div>
+      <div class="t-content"><div class="t-year">Growth</div><h4>Pan-India Presence</h4><p>AMACNO crosses 20,000 customers and launches in 10+ cities across India including Delhi, Bengaluru, Hyderabad, and Chennai.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="t-dot">2022</div>
+      <div class="t-content"><div class="t-year">Innovation</div><h4>Launch of 10 Gbps Fibre Plans</h4><p>We introduced India's most comprehensive ultra-high-speed plans and expanded our certified technician network to 200+ professionals nationwide.</p></div>
+    </div>
+    <div class="timeline-item">
+      <div class="t-dot">2025</div>
+      <div class="t-content"><div class="t-year">Today</div><h4>50,000+ Customers & Growing</h4><p>AMACNO serves over 50,000 homes and businesses across 20+ cities with a 4.8-star rating and an industry-leading 99.9% uptime record.</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section>
+  <div class="section-header center">
+    <div class="section-tag">What Drives Us</div>
+    <h2 class="section-title">Our Mission & Core Values</h2>
+    <p class="section-sub">Every decision at AMACNO is guided by a set of values that put our customers and communities first.</p>
+  </div>
+  <div class="values-grid">
+    <div class="value-card"><span class="value-icon">🎯</span><h3>Customer First</h3><p>Every decision we make starts with one question: does this make life better for our customers? Their needs always come before ours.</p></div>
+    <div class="value-card"><span class="value-icon">💡</span><h3>Transparency</h3><p>No fine print. No surprise bills. No confusing contracts. We show you exactly what you're paying for and why — always.</p></div>
+    <div class="value-card"><span class="value-icon">⚡</span><h3>Reliability</h3><p>We deliver what we promise. From installation timelines to uptime guarantees, AMACNO is a brand our customers can count on.</p></div>
+    <div class="value-card"><span class="value-icon">🌱</span><h3>Community Impact</h3><p>We invest in the communities we serve — from school broadband programs to local employment and digital literacy initiatives.</p></div>
+    <div class="value-card"><span class="value-icon">🚀</span><h3>Innovation</h3><p>We continuously evolve our offerings to stay at the frontier of connectivity technology, so our customers always have access to the best.</p></div>
+    <div class="value-card"><span class="value-icon">🤝</span><h3>Integrity</h3><p>We act with honesty in every interaction — with customers, partners, and our team. Trust is our most valuable asset.</p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="section-header center">
+    <div class="section-tag">The People Behind AMACNO</div>
+    <h2 class="section-title">Meet Our Leadership Team</h2>
+    <p class="section-sub">A passionate team of telecom, technology, and customer experience professionals united by a common mission.</p>
+  </div>
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar">AK</div><h3>Amit Kumar</h3><div class="role">Founder & CEO</div><div class="bio">15+ years in telecom. Visionary behind AMACNO's customer-first approach.</div></div>
+    <div class="team-card"><div class="team-avatar">SP</div><h3>Sunita Patel</h3><div class="role">Chief Operations Officer</div><div class="bio">Operations expert ensuring every installation and service runs flawlessly.</div></div>
+    <div class="team-card"><div class="team-avatar">RG</div><h3>Rahul Gupta</h3><div class="role">Head of Technology</div><div class="bio">Network architect with 12+ years designing high-availability fibre infrastructure.</div></div>
+    <div class="team-card"><div class="team-avatar">NM</div><h3>Neha Mishra</h3><div class="role">Director of Customer Success</div><div class="bio">Champion of AMACNO's 4.8-star customer satisfaction rating and 24/7 support culture.</div></div>
+    <div class="team-card"><div class="team-avatar">VS</div><h3>Vikram Singh</h3><div class="role">Head of Business Development</div><div class="bio">Drives AMACNO's partnerships with India's leading telecom and cable operators.</div></div>
+    <div class="team-card"><div class="team-avatar">PA</div><h3>Priya Arora</h3><div class="role">Head of Finance</div><div class="bio">Ensures AMACNO's pricing stays honest, competitive, and completely transparent.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-header">
+    <div class="section-tag">What Customers Say</div>
+    <h2 class="section-title">Trusted by 50,000+ Indians</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"AMACNO transformed my work-from-home experience. The speeds are incredible and I haven't had a single outage in over a year. Truly worth every rupee."</p><div class="t-author"><div class="t-avatar">RK</div><div><div class="t-name">Rajesh Kumar</div><div class="t-role">Software Engineer, Mumbai</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"The installation was done in under two hours and the technician was extremely professional. Best internet service I've used in India by far."</p><div class="t-author"><div class="t-avatar">PS</div><div><div class="t-name">Priya Sharma</div><div class="t-role">Business Owner, Pune</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"We switched our entire office to AMACNO business plans. No slowdowns even with 50+ people online simultaneously. The dedicated bandwidth is a game changer."</p><div class="t-author"><div class="t-avatar">AM</div><div><div class="t-name">Arjun Mehta</div><div class="t-role">CEO, TechStartup Delhi</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Want to Join the AMACNO Family?</h2>
+  <p>Whether as a customer, partner, or team member — we'd love to connect with you.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <a class="btn-primary" href="contact.html">Contact Us</a>
+    <a class="btn-outline" href="plans.html">View Our Plans</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html">AMACNO<span>.</span></a>
+      <p>India's trusted connectivity partner delivering high-speed internet, cable TV, and bundled services to homes and businesses.</p>
+    </div>
+    <div class="footer-col"><h4>Company</h4><a href="aboutus.html">About Us</a><a href="aboutus.html">Our Team</a><a href="contact.html">Careers</a><a href="contact.html">Partners</a></div>
+    <div class="footer-col"><h4>Services</h4><a href="services.html">Home Internet</a><a href="services.html">Business Internet</a><a href="services.html">Cable TV</a><a href="services.html">Bundle Plans</a></div>
+    <div class="footer-col"><h4>Support</h4><a href="plans.html">View Plans</a><a onclick="openHelp()" style="cursor:pointer;">Get Help</a><a href="contact.html">Contact Us</a><a href="plans.html">FAQs</a></div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2025 AMACNO PVT LTD. All rights reserved. | CIN: U72900MH2010PTC123456</div>
+    <div class="social-links"><a class="social-link">f</a><a class="social-link">𝕏</a><a class="social-link">in</a><a class="social-link">W</a></div>
+  </div>
+</footer>
+
+<a id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</a>
+<button class="help-fab" onclick="openHelp()">💬</button>
+<div class="overlay" id="overlay" onclick="closeHelp()"></div>
+<div class="help-popup" id="helpPopup">
+  <div class="popup-header">
+    <div class="popup-header-text"><h3>AMACNO Support</h3><p>How can we help you today?</p></div>
+    <button class="popup-close" onclick="closeHelp()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-options">
+      <a class="popup-option" href="plans.html"><div class="pop-icon">💰</div><div><div class="pop-title">View Plans & Pricing</div><div class="pop-sub">Find the right plan for you</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">📞</div><div><div class="pop-title">Request a New Connection</div><div class="pop-sub">Get connected in 48 hours</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">🔧</div><div><div class="pop-title">Technical Support</div><div class="pop-sub">Troubleshoot your connection</div></div></a>
+    </div>
+    <div class="popup-chat">
+      <p>💬 Chat with us — we reply instantly</p>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="Type your question..." onkeypress="if(event.key==='Enter')sendChat()"/>
+        <button class="chat-send" onclick="sendChat()">➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function openHelp(){document.getElementById('helpPopup').classList.add('active');document.getElementById('overlay').classList.add('active');}
+function closeHelp(){document.getElementById('helpPopup').classList.remove('active');document.getElementById('overlay').classList.remove('active');}
+const botReplies=["Thanks for your interest in AMACNO! Call +91 98765 43210 for any queries.","We've been connecting India since 2010 with 50,000+ happy customers.","Fill the contact form and our team will respond within the hour.","Plans start from ₹499/month — no hidden fees, no contracts.","We operate in 20+ cities across India. Contact us to check availability."];
+let botIdx=0;
+function sendChat(){const inp=document.getElementById('chatInput'),msgs=document.getElementById('chatMessages'),txt=inp.value.trim();if(!txt)return;msgs.innerHTML+=`<div class="chat-msg user">${txt}</div>`;inp.value='';setTimeout(()=>{msgs.innerHTML+=`<div class="chat-msg bot">🤖 ${botReplies[botIdx%botReplies.length]}</div>`;botIdx++;msgs.scrollTop=msgs.scrollHeight;},700);msgs.scrollTop=msgs.scrollHeight;}
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+</script>
+</body>
+</html>
