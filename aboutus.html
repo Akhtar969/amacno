@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>About Us – AMACNO PVT LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+/* ABOUT HERO */
+.about-hero{
+  padding:5rem 5vw 4rem;text-align:center;
+  background:linear-gradient(160deg,rgba(0,120,255,.12),transparent 70%);
+  border-bottom:1px solid var(--border);
+  position:relative;overflow:hidden;
+}
+.about-hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(0,200,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,200,255,.03) 1px,transparent 1px);
+  background-size:50px 50px;
+}
+.about-hero>*{position:relative;z-index:1;}
+.about-hero h1{font-family:'Syne',sans-serif;font-size:clamp(2rem,5vw,3.5rem);font-weight:800;margin-bottom:1rem;}
+.about-hero .grad{background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.about-hero p{color:var(--text2);max-width:640px;margin:0 auto;line-height:1.7;font-size:1.05rem;}
+
+/* STORY GRID */
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;padding:5rem 5vw;}
+.story-text h2{font-family:'Syne',sans-serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:800;margin-bottom:1.2rem;}
+.story-text p{color:var(--text2);line-height:1.85;margin-bottom:1.2rem;font-size:.95rem;}
+.about-visual{
+  background:var(--card);border:1px solid var(--border);
+  border-radius:var(--radius);padding:3rem;text-align:center;
+}
+.big-num{
+  font-family:'Syne',sans-serif;font-size:5rem;font-weight:800;
+  background:linear-gradient(135deg,var(--accent),var(--accent3));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  line-height:1;
+}
+.big-label{color:var(--text2);margin:.5rem 0 2rem;font-size:.95rem;}
+.stats-mini{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
+.stat-mini{background:rgba(0,120,255,.08);border:1px solid var(--border);border-radius:10px;padding:1.2rem;text-align:center;}
+.stat-mini-num{font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--accent);}
+.stat-mini-label{color:var(--text2);font-size:.78rem;margin-top:.2rem;}
+
+/* TIMELINE */
+.timeline{position:relative;padding:5rem 5vw;background:var(--bg2);border-top:1px solid var(--border);}
+.timeline-line{position:absolute;left:calc(5vw + 24px);top:0;bottom:0;width:2px;background:linear-gradient(to bottom,transparent,var(--accent),transparent);}
+.timeline-items{position:relative;z-index:1;max-width:700px;margin:0 auto;}
+.timeline-item{display:flex;gap:2rem;margin-bottom:2.5rem;align-items:flex-start;}
+.t-dot{
+  width:50px;height:50px;flex-shrink:0;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-weight:800;font-size:.85rem;color:#fff;
+  box-shadow:0 0 20px rgba(0,120,255,.4);
+}
+.t-content{padding-top:.4rem;}
+.t-year{color:var(--accent);font-size:.78rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.t-content h4{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin:.2rem 0 .4rem;}
+.t-content p{color:var(--text2);font-size:.88rem;line-height:1.6;}
+
+/* VALUES */
+.values-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;}
+.value-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:2rem;text-align:center;
+  transition:transform .3s,border-color .3s;
+}
+.value-card:hover{transform:translateY(-5px);border-color:rgba(0,200,255,.3);}
+.value-icon{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.value-card h3{font-family:'Syne',sans-serif;font-size:1.05rem;font-weight:700;margin-bottom:.6rem;}
+.value-card p{color:var(--text2);font-size:.88rem;line-height:1.6;}
+
+/* TEAM */
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:1.5rem;}
+.team-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  padding:2rem 1.5rem;text-align:center;transition:transform .3s;
+}
+.team-card:hover{transform:translateY(-5px);}
+.team-avatar{
+  width:72px;height:72px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  margin:0 auto 1rem;display:flex;align-items:center;justify-content:center;
+  font-family:'Syne',sans-serif;font-size:1.4rem;font-weight:800;color:#fff;
+}
+.team-card h3{font-family:'Syne',sans-serif;font-size:.98rem;font-weight:700;}
+.team-card .role{color:var(--accent);font-size:.78rem;margin-top:.25rem;}
+.team-card .bio{color:var(--text2);font-size:.8rem;margin-top:.5rem;line-height:1.4;}
+
+/* NUMBERS BAND */
+.numbers-band{
+  display:flex;justify-content:space-around;flex-wrap:wrap;gap:2rem;
+  padding:4rem 5vw;
+  background:linear-gradient(135deg,rgba(0,120,255,.1),rgba(0,200,255,.05));
+  border-top:1px solid var(--border);border-bottom:1px solid var(--border);
+}
+.num-item{text-align:center;}
+.num-big{font-family:'Syne',sans-serif;font-size:2.8rem;font-weight:800;background:linear-gradient(135deg,var(--accent),var(--accent3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.num-label{color:var(--text2);font-size:.85rem;margin-top:.25rem;}
+
+@media(max-width:900px){.story-grid{grid-template-columns:1fr;}.timeline-line{display:none;}}
+@media(max-width:640px){.numbers-band{gap:1.5rem;}}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+Independent Internet & Cable Assistance • Call Now: (844) 525-0789
+</div>
+
+<nav>
+  <a class="logo" href="index.html">AMACNO<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html">Services</a></li>
+    <li><a href="plans.html">Plans & Pricing</a></li>
+    <li><a href="aboutus.html" class="active">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Get Help</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Home</a><a href="services.html">📡 Services</a>
+  <a href="plans.html">💰 Plans & Pricing</a><a href="aboutus.html">ℹ️ About Us</a>
+  <a href="contact.html">📞 Contact</a><a onclick="openHelp()">💬 Get Help</a>
+</div>
+
+<!-- ABOUT HERO -->
+<div class="about-hero">
+  <div class="section-tag">Who We Are</div>
+  <h1>Independent Guidance,<br><span class="grad">Helping You Make Informed Choices</span></h1>
+  <p>
+    AMACNO is an independent third-party assistance provider offering general guidance related to internet, Wi-Fi, and cable services across the United States. 
+    Our mission is to simplify complex service options and help individuals and businesses make informed decisions — without confusion or pressure.
+  </p>
+</div>
+
+<!-- NUMBERS BAND -->
+<div class="numbers-band">
+  <div class="num-item"><div class="num-big">10K+</div><div class="num-label">Users Assisted</div></div>
+  <div class="num-item"><div class="num-big">Nationwide</div><div class="num-label">Coverage Insights</div></div>
+  <div class="num-item"><div class="num-big">10+</div><div class="num-label">Years Experience</div></div>
+  <div class="num-item"><div class="num-big">Support</div><div class="num-label">Guidance Focused</div></div>
+  <div class="num-item"><div class="num-big">4.5★</div><div class="num-label">User Satisfaction</div></div>
+</div>
+
+<!-- STORY SECTION -->
+<div class="story-grid">
+  <div class="story-text">
+    <div class="section-tag">Our Story</div>
+    <h2>Built to Simplify Connectivity Decisions</h2>
+    <p>
+      AMACNO was created to help individuals better understand internet and cable service options in a rapidly changing digital world. 
+      With so many providers, plans, and pricing models available, choosing the right service can often feel overwhelming.
+    </p>
+    <p>
+      Our goal is simple: provide clear, unbiased, and easy-to-understand information so users can confidently explore their options. 
+      We focus on education, comparison guidance, and general assistance — without promoting or selling any specific provider.
+    </p>
+    <p>
+      Today, we continue to support users across the United States by offering independent insights into service types, pricing ranges, and connectivity solutions.
+    </p>
+    <div class="btn-group" style="margin-top:1.5rem;">
+      <button class="btn-primary" onclick="openHelp()">Get Guidance</button>
+      <a class="btn-outline" href="plans.html">View Pricing Insights</a>
+    </div>
+  </div>
+
+  <div class="about-visual">
+    <div class="big-num">10K+</div>
+    <div class="big-label">Users guided across the U.S.</div>
+    <div class="stats-mini">
+      <div class="stat-mini"><div class="stat-mini-num">🌎 Nationwide</div><div class="stat-mini-label">Coverage Insights</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">⭐ 4.5</div><div class="stat-mini-label">User Feedback</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">📊 Info</div><div class="stat-mini-label">Guidance Driven</div></div>
+      <div class="stat-mini"><div class="stat-mini-num">📅 Ongoing</div><div class="stat-mini-label">Continuous Support</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TIMELINE -->
+<div class="timeline">
+  <div class="section-header center" style="margin-bottom:3rem;">
+    <div class="section-tag">Our Journey</div>
+    <h2 class="section-title">How We Evolved</h2>
+  </div>
+
+  <div class="timeline-items">
+    <div class="timeline-item">
+      <div class="t-dot">Start</div>
+      <div class="t-content">
+        <div class="t-year">Foundation</div>
+        <h4>Focused on Guidance</h4>
+        <p>AMACNO began with the goal of helping users understand internet and cable services without confusion.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-dot">Growth</div>
+      <div class="t-content">
+        <div class="t-year">Expansion</div>
+        <h4>Reaching More Users</h4>
+        <p>Expanded support to assist users across multiple regions with general connectivity insights.</p>
+      </div>
+    </div>
+
+    <div class="timeline-item">
+      <div class="t-dot">Today</div>
+      <div class="t-content">
+        <div class="t-year">Present</div>
+        <h4>Independent Assistance Platform</h4>
+        <p>Continuing to provide unbiased, third-party guidance for better decision-making.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- VALUES -->
+<section>
+  <div class="section-header center">
+    <div class="section-tag">Our Principles</div>
+    <h2 class="section-title">What Guides Us</h2>
+    <p class="section-sub">Our approach is built on clarity, independence, and user-first thinking.</p>
+  </div>
+
+  <div class="values-grid">
+    <div class="value-card"><span class="value-icon">🎯</span><h3>User First</h3><p>We focus on providing helpful and relevant information for every user.</p></div>
+    <div class="value-card"><span class="value-icon">💡</span><h3>Clarity</h3><p>We simplify complex service options into easy-to-understand guidance.</p></div>
+    <div class="value-card"><span class="value-icon">⚖️</span><h3>Independence</h3><p>We do not promote or represent any service provider.</p></div>
+    <div class="value-card"><span class="value-icon">📊</span><h3>Informational Focus</h3><p>All support is based on general knowledge and market insights.</p></div>
+    <div class="value-card"><span class="value-icon">🔍</span><h3>Transparency</h3><p>No hidden agendas — only straightforward information.</p></div>
+    <div class="value-card"><span class="value-icon">🤝</span><h3>Trust</h3><p>We aim to build trust through honest and unbiased assistance.</p></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="section-header center">
+    <div class="section-tag">Our Team</div>
+    <h2 class="section-title">Guidance & Support Team</h2>
+    <p class="section-sub">A team focused on providing clear and helpful information.</p>
+  </div>
+
+  <div class="team-grid">
+    <div class="team-card"><div class="team-avatar">AT</div><h3>Alex Turner</h3><div class="role">Lead Advisor</div><div class="bio">Specializes in internet service comparisons and user guidance.</div></div>
+    <div class="team-card"><div class="team-avatar">SM</div><h3>Sophia Miller</h3><div class="role">Support Specialist</div><div class="bio">Helps users understand connectivity and service options.</div></div>
+    <div class="team-card"><div class="team-avatar">JR</div><h3>James Reed</h3><div class="role">Research Analyst</div><div class="bio">Focuses on market trends and pricing insights.</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section>
+  <div class="section-header">
+    <div class="section-tag">User Feedback</div>
+    <h2 class="section-title">What People Say</h2>
+  </div>
+
+  <div class="testimonials-grid">
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Helped me understand different internet options clearly before choosing a provider."</p><div class="t-author"><div class="t-avatar">JS</div><div><div class="t-name">John S.</div><div class="t-role">California</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Simple and easy guidance without pushing any specific company."</p><div class="t-author"><div class="t-avatar">ML</div><div><div class="t-name">Maria L.</div><div class="t-role">Texas</div></div></div></div>
+    <div class="testimonial"><div class="stars">★★★★★</div><p>"Useful information that helped me compare plans before making a decision."</p><div class="t-author"><div class="t-avatar">DK</div><div><div class="t-name">David K.</div><div class="t-role">New York</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Need Help Understanding Your Options?</h2>
+  <p>Connect with us for general guidance and informational assistance.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <button class="btn-primary" onclick="openHelp()">Get Guidance</button>
+    <a class="btn-outline" href="plans.html">View Pricing Insights</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="text-decoration:none;">AMACNO<span>.</span></a>
+      <p>
+        Independent third-party assistance provider offering informational support 
+        for internet and cable services.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="aboutus.html">About Us</a>
+      <a href="aboutus.html">Our Team</a>
+      <a href="contact.html">Careers</a>
+      <a href="contact.html">Partners</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Home Internet</a>
+      <a href="services.html">Business Internet</a>
+      <a href="services.html">Cable TV</a>
+      <a href="services.html">Bundle Plans</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="plans.html">View Plans</a>
+      <a onclick="openHelp()" style="cursor:pointer;">Get Help</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="plans.html">FAQs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 AMACNO. Independent Assistance Provider. Not affiliated with any ISP.
+    </div>
+  </div>
+</footer>
+
+<a id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</a>
+<button class="help-fab" onclick="openHelp()">💬</button>
+<div class="overlay" id="overlay" onclick="closeHelp()"></div>
+<div class="help-popup" id="helpPopup">
+  <div class="popup-header">
+    <div class="popup-header-text"><h3>AMACNO Support</h3><p>How can we help you today?</p></div>
+    <button class="popup-close" onclick="closeHelp()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-options">
+      <a class="popup-option" href="plans.html"><div class="pop-icon">💰</div><div><div class="pop-title">View Plans & Pricing</div><div class="pop-sub">Find the right plan for you</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">📞</div><div><div class="pop-title">Request a New Connection</div><div class="pop-sub">Get connected in 48 hours</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">🔧</div><div><div class="pop-title">Technical Support</div><div class="pop-sub">Troubleshoot your connection</div></div></a>
+    </div>
+    <div class="popup-chat">
+      <p>💬 Chat with us — we reply instantly</p>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="Type your question..." onkeypress="if(event.key==='Enter')sendChat()"/>
+        <button class="chat-send" onclick="sendChat()">➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function openHelp(){document.getElementById('helpPopup').classList.add('active');document.getElementById('overlay').classList.add('active');}
+function closeHelp(){document.getElementById('helpPopup').classList.remove('active');document.getElementById('overlay').classList.remove('active');}
+const botReplies=["Thanks for your interest in AMACNO! Call +91 98765 43210 for any queries.","We've been connecting India since 2010 with 50,000+ happy customers.","Fill the contact form and our team will respond within the hour.","Plans start from ₹499/month — no hidden fees, no contracts.","We operate in 20+ cities across India. Contact us to check availability."];
+let botIdx=0;
+function sendChat(){const inp=document.getElementById('chatInput'),msgs=document.getElementById('chatMessages'),txt=inp.value.trim();if(!txt)return;msgs.innerHTML+=`<div class="chat-msg user">${txt}</div>`;inp.value='';setTimeout(()=>{msgs.innerHTML+=`<div class="chat-msg bot">🤖 ${botReplies[botIdx%botReplies.length]}</div>`;botIdx++;msgs.scrollTop=msgs.scrollHeight;},700);msgs.scrollTop=msgs.scrollHeight;}
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+</script>
+</body>
+</html>

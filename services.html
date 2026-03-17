@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Services – AMACNO PVT LTD</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="shared.css"/>
+<style>
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:1.5rem;padding:3rem 5vw 5rem;}
+.service-card{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:2.5rem;
+  transition:transform .3s,border-color .3s,box-shadow .3s;position:relative;overflow:hidden;
+}
+.service-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent2),var(--accent3));opacity:0;transition:opacity .3s;}
+.service-card:hover{transform:translateY(-6px);border-color:rgba(0,200,255,.35);box-shadow:var(--shadow);}
+.service-card:hover::before{opacity:1;}
+.service-icon{font-size:2.5rem;margin-bottom:1.2rem;display:block;}
+.service-card h3{font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;margin-bottom:.75rem;}
+.service-card p{color:var(--text2);font-size:.92rem;line-height:1.7;margin-bottom:1.2rem;}
+.service-features{list-style:none;}
+.service-features li{padding:.35rem 0;color:var(--text2);font-size:.88rem;display:flex;align-items:center;gap:.5rem;border-bottom:1px solid rgba(0,200,255,.07);}
+.service-features li:last-child{border:none;}
+.service-features li::before{content:'→';color:var(--accent);font-weight:700;flex-shrink:0;}
+
+.providers-section{padding:4rem 5vw;background:var(--bg2);border-top:1px solid var(--border);text-align:center;}
+.providers-logos{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem;margin-top:2rem;}
+.provider-pill{
+  background:rgba(0,120,255,.1);border:1px solid var(--border);
+  border-radius:50px;padding:.6rem 1.5rem;
+  font-weight:600;font-size:.9rem;color:var(--text2);
+  transition:border-color .2s,color .2s;
+}
+.provider-pill:hover{border-color:var(--accent);color:var(--accent);}
+
+.disclaimer-box{
+  background:rgba(0,120,255,.06);border:1px solid var(--border);
+  border-radius:var(--radius);padding:2rem;
+}
+.disclaimer-box h3{font-family:'Syne',sans-serif;font-weight:700;margin-bottom:.75rem;color:var(--accent);}
+.disclaimer-box p{color:var(--text2);line-height:1.7;font-size:.92rem;}
+
+.process-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.5rem;}
+.process-step{text-align:center;padding:2rem 1rem;}
+.step-num{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent2),var(--accent));
+  color:#fff;font-family:'Syne',sans-serif;font-size:1.3rem;font-weight:800;
+  display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;
+}
+.process-step h4{font-family:'Syne',sans-serif;font-size:1rem;font-weight:700;margin-bottom:.5rem;}
+.process-step p{color:var(--text2);font-size:.87rem;line-height:1.5;}
+</style>
+</head>
+<body>
+
+<div class="top-banner">
+Independent Internet & Cable Assistance • Call Now: (844) 525-0789
+</div>
+
+<nav>
+  <a class="logo" href="index.html">AMACNO<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="plans.html">Plans & Pricing</a></li>
+    <li><a href="aboutus.html">About Us</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="contact.html">Get Help</a>
+  <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="index.html">🏠 Home</a>
+  <a href="services.html">📡 Services</a>
+  <a href="plans.html">💰 Plans & Pricing</a>
+  <a href="aboutus.html">ℹ️ About Us</a>
+  <a href="contact.html">📞 Contact</a>
+  <a onclick="openHelp()">💬 Get Help</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="section-tag">What We Do</div>
+  <h1>Independent Guidance & Assistance</h1>
+  <p>
+    We provide independent third-party guidance and informational support related to internet, broadband, Wi-Fi, and cable TV services. 
+    Our role is to help you understand available options — not to provide or sell services.
+  </p>
+</div>
+
+<!-- SERVICE CARDS -->
+<div class="services-grid">
+
+  <div class="service-card">
+    <span class="service-icon">🌐</span>
+    <h3>Internet Service Guidance</h3>
+    <p>Understand different types of internet services, including fiber, cable, DSL, and wireless options available in your area.</p>
+    <ul class="service-features">
+      <li>Overview of internet connection types</li>
+      <li>General speed comparison guidance</li>
+      <li>Understanding data usage and limits</li>
+      <li>Basic service availability insights</li>
+      <li>Informational support only</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">📺</span>
+    <h3>Cable TV & Streaming Information</h3>
+    <p>Get general information about cable TV services, channel options, and streaming alternatives.</p>
+    <ul class="service-features">
+      <li>Channel package understanding</li>
+      <li>Streaming platform comparisons</li>
+      <li>Entertainment service overview</li>
+      <li>General viewing options guidance</li>
+      <li>No subscriptions provided</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">📶</span>
+    <h3>Wi-Fi & Connectivity Guidance</h3>
+    <p>Receive general assistance on improving home and office connectivity and understanding network setups.</p>
+    <ul class="service-features">
+      <li>Basic Wi-Fi optimization tips</li>
+      <li>Router placement guidance</li>
+      <li>Understanding signal coverage</li>
+      <li>Common issue awareness</li>
+      <li>No direct technical fixes</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">📋</span>
+    <h3>Provider Process Guidance</h3>
+    <p>Learn how internet and cable service providers typically operate, including setup and billing processes.</p>
+    <ul class="service-features">
+      <li>Understanding installation processes</li>
+      <li>Billing cycle awareness</li>
+      <li>Account setup information</li>
+      <li>Service request process overview</li>
+      <li>General informational assistance</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">⚖️</span>
+    <h3>Independent Comparison Guidance</h3>
+    <p>Receive unbiased guidance to help compare service features and options across different providers.</p>
+    <ul class="service-features">
+      <li>Feature comparison insights</li>
+      <li>No brand preference or bias</li>
+      <li>Independent informational support</li>
+      <li>No partnerships or endorsements</li>
+      <li>Decision-making assistance</li>
+    </ul>
+  </div>
+
+  <div class="service-card">
+    <span class="service-icon">📞</span>
+    <h3>Assistance Support</h3>
+    <p>Connect with an independent advisor for general guidance related to internet and cable services.</p>
+    <ul class="service-features">
+      <li>Third-party informational assistance</li>
+      <li>No direct service activation</li>
+      <li>No plan sales or subscriptions</li>
+      <li>General support only</li>
+      <li>Available guidance when needed</li>
+    </ul>
+  </div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);">
+  <div class="section-header center">
+    <div class="section-tag">How It Works</div>
+    <h2 class="section-title">Simple Guidance Process</h2>
+    <p class="section-sub">Get the information you need in a few simple steps.</p>
+  </div>
+
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <h4>Reach Out</h4>
+      <p>Contact us via phone or form to request guidance.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <h4>Discuss Your Needs</h4>
+      <p>Share your requirements so we can provide relevant information.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <h4>Get Guidance</h4>
+      <p>Receive general informational support about available options.</p>
+    </div>
+
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <h4>Make Your Decision</h4>
+      <p>Use the information to choose the service that fits your needs.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PROVIDERS -->
+<div class="providers-section">
+  <div class="section-tag">For Informational Purposes</div>
+  <h2 class="section-title">Common Service Providers</h2>
+  <p class="section-sub" style="margin:0 auto;">
+    Provider names may be referenced for informational purposes only. We do not represent, endorse, or partner with any provider.
+  </p>
+
+  <div class="providers-logos">
+    <div class="provider-pill">Xfinity</div>
+    <div class="provider-pill">Spectrum</div>
+    <div class="provider-pill">AT&T</div>
+    <div class="provider-pill">Verizon</div>
+    <div class="provider-pill">Cox</div>
+    <div class="provider-pill">Frontier</div>
+    <div class="provider-pill">Optimum</div>
+    <div class="provider-pill">CenturyLink</div>
+  </div>
+</div>
+
+<!-- DISCLAIMER -->
+<section style="padding:3rem 5vw 5rem;">
+  <div class="disclaimer-box">
+    <h3>ℹ️ Important Disclaimer</h3>
+    <p>
+      AMACNO is an independent third-party assistance provider. We are not an Internet Service Provider (ISP) and do not provide internet, cable, or telecom services.
+      We are not affiliated with, authorized by, or endorsed by any service provider.
+    </p>
+    <p>
+      We do not sell subscriptions, activate services, or provide direct technical support. All assistance provided is for general informational purposes only
+      to help users understand available service options.
+    </p>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <h2>Need Help Understanding Your Options?</h2>
+  <p>Talk to an independent advisor for general guidance and informational support.</p>
+  <div class="btn-group" style="justify-content:center;">
+    <button class="btn-primary" onclick="openHelp()">Call Now</button>
+    <button class="btn-outline" onclick="openHelp()">Get Guidance</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a class="logo" href="index.html" style="text-decoration:none;">AMACNO<span>.</span></a>
+      <p>
+        Independent third-party assistance provider offering informational support 
+        for internet and cable services.
+      </p>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="aboutus.html">About Us</a>
+      <a href="aboutus.html">Our Team</a>
+      <a href="contact.html">Careers</a>
+      <a href="contact.html">Partners</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="services.html">Home Internet</a>
+      <a href="services.html">Business Internet</a>
+      <a href="services.html">Cable TV</a>
+      <a href="services.html">Bundle Plans</a>
+    </div>
+    <div class="footer-col">
+      <h4>Support</h4>
+      <a href="plans.html">View Plans</a>
+      <a onclick="openHelp()" style="cursor:pointer;">Get Help</a>
+      <a href="contact.html">Contact Us</a>
+      <a href="plans.html">FAQs</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>
+      © 2026 AMACNO. Independent Assistance Provider. Not affiliated with any ISP.
+    </div>
+  </div>
+</footer>
+
+<a id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</a>
+<button class="help-fab" onclick="openHelp()">💬</button>
+<div class="overlay" id="overlay" onclick="closeHelp()"></div>
+<div class="help-popup" id="helpPopup">
+  <div class="popup-header">
+    <div class="popup-header-text"><h3>AMACNO Support</h3><p>How can we help you today?</p></div>
+    <button class="popup-close" onclick="closeHelp()">✕</button>
+  </div>
+  <div class="popup-body">
+    <div class="popup-options">
+      <a class="popup-option" href="plans.html"><div class="pop-icon">💰</div><div><div class="pop-title">View Plans & Pricing</div><div class="pop-sub">Find the right plan for you</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">📞</div><div><div class="pop-title">Request a New Connection</div><div class="pop-sub">Get connected in 48 hours</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">🔧</div><div><div class="pop-title">Technical Support</div><div class="pop-sub">Troubleshoot your connection</div></div></a>
+      <a class="popup-option" href="contact.html"><div class="pop-icon">📋</div><div><div class="pop-title">Account & Billing Help</div><div class="pop-sub">Manage your account</div></div></a>
+    </div>
+    <div class="popup-chat">
+      <p>💬 Chat with us — we reply instantly</p>
+      <div class="chat-messages" id="chatMessages"></div>
+      <div class="chat-input-row">
+        <input class="chat-input" id="chatInput" placeholder="Type your question..." onkeypress="if(event.key==='Enter')sendChat()"/>
+        <button class="chat-send" onclick="sendChat()">➤</button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
+function openHelp(){document.getElementById('helpPopup').classList.add('active');document.getElementById('overlay').classList.add('active');}
+function closeHelp(){document.getElementById('helpPopup').classList.remove('active');document.getElementById('overlay').classList.remove('active');}
+const botReplies=["Thanks for reaching out! Call +91 98765 43210 for urgent help.","View all plan details on our Plans & Pricing page.","Fill the contact form and we'll respond within the hour.","Plans start from ₹499/month — no hidden fees!","Installations done within 48–72 hours. Want us to connect you?"];
+let botIdx=0;
+function sendChat(){const inp=document.getElementById('chatInput'),msgs=document.getElementById('chatMessages'),txt=inp.value.trim();if(!txt)return;msgs.innerHTML+=`<div class="chat-msg user">${txt}</div>`;inp.value='';setTimeout(()=>{msgs.innerHTML+=`<div class="chat-msg bot">🤖 ${botReplies[botIdx%botReplies.length]}</div>`;botIdx++;msgs.scrollTop=msgs.scrollHeight;},700);msgs.scrollTop=msgs.scrollHeight;}
+window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
+</script>
+</body>
+</html>
