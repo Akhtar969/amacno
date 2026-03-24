@@ -109,7 +109,7 @@
 <body>
 
 <div class="top-banner">
-Independent Internet & Cable Assistance • Call Now: (844) 525-0789
+Independent Internet & Cable Assistance • Call Now: 866 948 4216
 </div>
 
 <nav>
@@ -344,7 +344,7 @@ Independent Internet & Cable Assistance • Call Now: (844) 525-0789
 function toggleMenu(){document.getElementById('mobileMenu').classList.toggle('open');}
 function openHelp(){document.getElementById('helpPopup').classList.add('active');document.getElementById('overlay').classList.add('active');}
 function closeHelp(){document.getElementById('helpPopup').classList.remove('active');document.getElementById('overlay').classList.remove('active');}
-const botReplies=["Thanks for your interest in AMACNO! Call +91 98765 43210 for any queries.","We've been connecting India since 2010 with 50,000+ happy customers.","Fill the contact form and our team will respond within the hour.","Plans start from ₹499/month — no hidden fees, no contracts.","We operate in 20+ cities across India. Contact us to check availability."];
+const botReplies=["Thanks for your interest in AMACNO! Call 866 948 4216 for any queries.","We've been connecting India since 2010 with 50,000+ happy customers.","Fill the contact form and our team will respond within the hour.","Plans start from ₹499/month — no hidden fees, no contracts.","We operate in 20+ cities across India. Contact us to check availability."];
 let botIdx=0;
 function sendChat(){const inp=document.getElementById('chatInput'),msgs=document.getElementById('chatMessages'),txt=inp.value.trim();if(!txt)return;msgs.innerHTML+=`<div class="chat-msg user">${txt}</div>`;inp.value='';setTimeout(()=>{msgs.innerHTML+=`<div class="chat-msg bot">🤖 ${botReplies[botIdx%botReplies.length]}</div>`;botIdx++;msgs.scrollTop=msgs.scrollHeight;},700);msgs.scrollTop=msgs.scrollHeight;}
 window.addEventListener('scroll',()=>{document.getElementById('scrollTop').classList.toggle('visible',window.scrollY>400);});
